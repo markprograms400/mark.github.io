@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!-- ^ Tells the browser this is a modern HTML5 document. Always the first line. -->
+<html lang="en">
+
+<!-- ======================================================
+     <head> = info ABOUT the page (title, styles, metadata).
+     Nothing in here shows up on the page itself.
+     ====================================================== -->
+<head>
+  <meta charset="UTF-8">
+  <!-- Makes the site scale properly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Text shown in the browser tab -->
+  <title>Mark Kang | Cybersecurity Portfolio</title>
+  <meta name="description" content="CS student specializing in cybersecurity and SOC operations.">
+  <link rel="canonical" href="https://markkprograms.com/">
+  <meta property="og:url" content="https://markkprograms.com/">
+  <meta property="og:title" content="Mark Kang | Cybersecurity Portfolio">
+
+  <!-- CSS controls how things LOOK. Pattern:  selector { property: value; } -->
+  <style>
+    /* Variables: change a colour here and it updates everywhere */
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #7019e9;   /* terminal green */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Centres content and limits its width */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Navigation bar ---------- */
+    nav {
+      position: sticky; top: 0;
+      background: rgba(13,17,23,0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    nav .logo { font-family: monospace; font-weight: bold; color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul a { color: var(--text); font-size: 0.95rem; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 70px 0; border-bottom: 1px solid var(--border); }
+    h1 { font-size: 2.6rem; margin-bottom: 10px; }
+    h2 { font-size: 1.6rem; margin-bottom: 24px; }
+    h2::before { content: "> "; color: var(--accent); font-family: monospace; }
+    .tagline { color: var(--muted); font-size: 1.15rem; margin-bottom: 24px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block; padding: 10px 20px; margin: 10px 12px 0 0;
+      border: 1px solid var(--accent); border-radius: 6px; font-weight: 600;
+    }
+    .btn.primary { background: var(--accent); color: var(--bg); }
+    .btn:hover { text-decoration: none; opacity: 0.85; }
+
+    /* ---------- Cards (projects / write-ups) ---------- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 22px;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card h3 { margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 12px; }
+
+    /* Little tag labels */
+    .tags span {
+      display: inline-block; font-size: 0.75rem; font-family: monospace;
+      background: rgba(63,185,80,0.12); color: var(--accent);
+      padding: 2px 8px; border-radius: 4px; margin: 0 4px 4px 0;
+    }
+
+    /* Skills list */
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skills li {
+      list-style: none; background: var(--card); border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.9rem;
+    }
+
+    footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: 0.85rem; }
+
+    /* Responsive: on small screens, hide nav links' spacing issues */
+    @media (max-width: 600px) {
+      nav ul { gap: 12px; font-size: 0.85rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+
+<!-- ======================================================
+     <body> = everything visitors actually SEE.
+     ====================================================== -->
+<body>
+
+  <!-- NAV: links with href="#id" jump to the section with that id -->
+  <nav>
+    <div class="container">
+      <span class="logo">mark@portfolio:~$</span>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#writeups">Write-ups</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO / ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h1>Mark Kang</h1>
+      <p class="tagline">
+        Computer Science student specializing in cybersecurity.
+        Seeking SOC Analyst internships for Summer 2027.
+      </p>
+      <p>
+        I build home labs, investigate simulated incidents, and write Python tools
+        that speed up alert triage. I also lead coding classes, so I'm used to
+        explaining technical problems clearly.
+      </p>
+      <!-- target="_blank" opens the link in a new tab -->
+      <a class="btn primary" href="resume.pdf" target="_blank">Download Resume</a>
+      <a class="btn" href="https://github.com/YOUR-USERNAME" target="_blank">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/YOUR-USERNAME" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- PROJECTS: copy a whole <article class="card"> block to add another -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <!-- EXAMPLES ONLY: remove cards for projects you have not built yet. -->
+      <p class="tagline">Example project cards — replace with work you've actually completed.</p>
+      <div class="grid">
+
+        <article class="card">
+          <h3>Home SOC Lab</h3>
+          <p>Active Directory domain + Kali attacker VM feeding logs into Wazuh.
+             Simulated attacks and wrote detections mapped to MITRE ATT&amp;CK.</p>
+          <div class="tags"><span>Wazuh</span><span>Active Directory</span><span>Sysmon</span></div>
+          <a href="#">Read write-up →</a>
+        </article>
+
+        <article class="card">
+          <h3>IOC Triage Tool</h3>
+          <p>Python CLI that enriches IPs, domains, and file hashes using the
+             VirusTotal and AbuseIPDB APIs to speed up alert triage.</p>
+          <div class="tags"><span>Python</span><span>REST APIs</span><span>Threat Intel</span></div>
+          <a href="#">View on GitHub →</a>
+        </article>
+
+        <article class="card">
+          <h3>Phishing Email Analyzer</h3>
+          <p>Parses email headers to flag SPF/DKIM failures, spoofed senders,
+             and suspicious links.</p>
+          <div class="tags"><span>Python</span><span>Email Security</span></div>
+          <a href="#">View on GitHub →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITE-UPS -->
+  <section id="writeups">
+    <div class="container">
+      <h2>Incident Write-ups</h2>
+      <!-- EXAMPLES ONLY: publish only investigations you've actually completed. -->
+      <p class="tagline">Example write-ups — replace with your own investigations.</p>
+      <div class="grid">
+
+        <article class="card">
+          <h3>Brute Force → Successful Login</h3>
+          <p>Investigating Event IDs 4625/4624 to confirm an account compromise.</p>
+          <div class="tags"><span>LetsDefend</span><span>T1110</span></div>
+          <a href="#">Read report →</a>
+        </article>
+
+        <article class="card">
+          <h3>Malicious PowerShell Execution</h3>
+          <p>Tracing an encoded PowerShell command from email attachment to C2.</p>
+          <div class="tags"><span>CyberDefenders</span><span>T1059.001</span></div>
+          <a href="#">Read report →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & CERTS: <ul> = bullet list, <li> = each item -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills &amp; Certifications</h2>
+      <ul class="skills">
+        <li>Splunk (SPL)</li>
+        <li>Wazuh</li>
+        <li>Wireshark</li>
+        <li>Windows Event Logs</li>
+        <li>MITRE ATT&amp;CK</li>
+        <li>Python</li>
+        <li>Linux</li>
+        <li>CompTIA Security+ (in progress)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT: mailto: opens the visitor's email app -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Open to internship opportunities and a chat about security.</p>
+      <a class="btn primary" href="mailto:you@example.com">Email Me</a>
+    </div>
+  </section>
+
+  <footer>
+    <!-- &copy; is an "HTML entity" that shows the © symbol -->
+    &copy; 2026 Mark Kang · Hosted on GitHub Pages
+  </footer>
+
+</body>
+</html>
+
